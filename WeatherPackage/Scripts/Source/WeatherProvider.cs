@@ -8,18 +8,18 @@ namespace WeatherSystem
 {
   public class WeatherProvider : IWeatherProvider
   {
-    private readonly HashSet<IWeatherService> _services = new();
+    private readonly Dictionary<Type, IWeatherService> _services = new();
 
     public void AddWeatherService(IWeatherService service)
     {
-      _services.Add(service);
+      _services.TryAdd(service.GetType(), service);
     }
 
     public async Task<Weather> GetWeather(double latitude, double longitude, float timeout,
       CancellationToken cancellationToken)
     {
       var weather = new Weather();
-      foreach (IWeatherService service in _services)
+      foreach (IWeatherService service in _services.Values)
       {
         WeatherInfo weatherInfo;
         try
