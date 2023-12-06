@@ -12,11 +12,15 @@ namespace WeatherSystem.Extras.Services.OpenWeather
     private const string ApiKey = "bdac50fa2e57d62e828edce565c66e81";
 
     private readonly OpenWeatherWeatherInfoFactory _factory = new();
+    private readonly string _apiKey;
+
+    public OpenWeatherService(string apiKey = ApiKey) =>
+      _apiKey = apiKey;
 
     public async Task<WeatherInfo> GetWeatherInfo(double latitude, double longitude, float timeout,
       CancellationToken cancellationToken)
     {
-      var url = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={ApiKey}";
+      var url = $"https://api.openweathermap.org/data/2.5/weather?lat={latitude}&lon={longitude}&appid={_apiKey}";
       using (var client = new HttpClient())
       {
         client.Timeout = TimeSpan.FromSeconds(timeout);

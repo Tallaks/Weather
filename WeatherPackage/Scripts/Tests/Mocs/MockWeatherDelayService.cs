@@ -12,7 +12,7 @@ namespace Weather.Tests.Mocs
   {
     internal float Delay { get; set; }
 
-    public MockWeatherDelayService(float delay) =>
+    internal MockWeatherDelayService(float delay) =>
       Delay = delay;
 
     public async Task<WeatherInfo> GetWeatherInfo(double latitude, double longitude, float timeout,
