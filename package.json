@@ -1,0 +1,12 @@
+{
+  "name": "com.tallaks.weather",
+  "version": "1.0.0",
+  "displayName": "Weather Packcage",
+  "description": "Package for getting weather data. Done as task for job application.",
+  "main": "2021.3",
+  "author": {
+    "name": "Tallaks",
+    "email": "tallaksmain@gmail.com",
+    "url": ""
+  }
+}

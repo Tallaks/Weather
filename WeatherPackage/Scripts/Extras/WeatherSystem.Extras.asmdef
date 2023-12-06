@@ -1,0 +1,16 @@
+{
+    "name": "WeatherSystem.Extras",
+    "rootNamespace": "WeatherSystem.Extras",
+    "references": [
+        "GUID:7cc61a2bee8700c40a228739c7e875d6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
