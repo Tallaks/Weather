@@ -26,16 +26,18 @@ namespace WeatherSystem
         {
           weatherInfo = await service.GetWeatherInfo(latitude, longitude, timeout, cancellationToken);
         }
-        catch (OperationCanceledException e)
-        {
-          Debug.LogWarning("Operation canceled");
-          return null;
-        }
         catch (Exception e)
         {
-          Debug.LogWarning(
-            $"Exception occurred while getting weather info from service {service.GetType().Name}\n{e.Message}");
-          continue;
+          switch (e)
+          {
+            case OperationCanceledException _:
+              Debug.LogWarning("Operation was cancelled");
+              throw;
+            default:
+              Debug.LogError(
+                $"Exception occurred while getting weather info from service {service.GetType().Name}\n{e.Message}");
+              continue;
+          }
         }
 
         weather.AddWeatherInfo(service, weatherInfo);

@@ -7,7 +7,7 @@ namespace WeatherSystem
   public class Weather
   {
     private readonly Dictionary<Type, WeatherInfo> _weatherInfoByServiceType = new();
-    public static Weather Empty => new();
+    public bool IsEmpty => _weatherInfoByServiceType.Count == 0;
 
     public WeatherInfo GetWeatherInfoFrom<TWeaponService>() where TWeaponService : IWeatherService
     {
@@ -17,8 +17,7 @@ namespace WeatherSystem
     public override string ToString()
     {
       var stringBuilder = new StringBuilder();
-      if (_weatherInfoByServiceType.Count == 0)
-        return "Empty weather";
+      if (IsEmpty) return "Empty weather";
       foreach (Type serviceType in _weatherInfoByServiceType.Keys)
       {
         stringBuilder.Append(serviceType.Name);

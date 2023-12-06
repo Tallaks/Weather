@@ -1,7 +1,7 @@
 {
   "name": "com.tallaks.weather",
-  "version": "1.0.0",
-  "displayName": "Weather Packcage",
+  "version": "1.0.1",
+  "displayName": "Weather Package",
   "description": "Package for getting weather data. Done as task for job application.",
   "main": "2021.3",
   "author": {
